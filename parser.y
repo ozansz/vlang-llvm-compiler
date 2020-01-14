@@ -94,7 +94,7 @@ statement
         : assignment_statement TSEMICOLON
         | return_statement TSEMICOLON
         | expression TSEMICOLON                 {$$ = new NExpressionStatement(*$1);}
-        | variable_decl_statement TSEMICOLON
+        | variable_decl_statement
         | function_decl TSEMICOLON
         | if_statement TSEMICOLON
         | for_statement TSEMICOLON
@@ -127,8 +127,8 @@ variable_decl
         ;
 
 variable
-        : identifier                                        {$$ = new NVariable(*$1, VARIABLE_BASIC, 0);}
-        | identifier TLBRACE integer_expression TRBRACE     {$$ = new NVariable(*$1, VARIABLE_ARRAY, $<integer>3->value);}
+        : identifier                                        {$$ = new NVariable(*$1, VARIABLE_BASIC, *(new NExpression()));}
+        | identifier TLBRACE expression TRBRACE     {$$ = new NVariable(*$1, VARIABLE_ARRAY, *$3);}
         ;
 
 function_decl

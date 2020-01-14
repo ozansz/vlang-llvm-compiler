@@ -116,8 +116,8 @@ class NVariable : public NExpression {
 public:
     NIdentifier& identifier;
     int type;
-    int arr_size;
-    NVariable(NIdentifier& identifier, int type, int arr_size) :
+    NExpression& arr_size;
+    NVariable(NIdentifier& identifier, int type, NExpression& arr_size) :
         identifier(identifier), type(type), arr_size(arr_size), _ndtype(NODE_VAR) { }
     //virtual llvm::Value* codeGen(CodeGenContext& context);
 

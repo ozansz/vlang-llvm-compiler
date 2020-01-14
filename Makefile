@@ -13,4 +13,4 @@ lexer:
 	flex -o tokens.cpp tokens.l
 
 clean:
-	$(RM) *.hh parser.cpp parser.hpp tokens.cpp
+	$(RM) *.hh parser.cpp parser.hpp tokens.cpp parser

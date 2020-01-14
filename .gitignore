@@ -1,4 +1,7 @@
+.vscode/
+
 *.hh
+parser
 parser.cpp
 parser.hpp
 tokens.cpp

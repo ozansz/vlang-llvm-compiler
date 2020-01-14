@@ -68,8 +68,11 @@ void NIdentifier::DumpNode() {
 void NVariable::DumpNode() {
     std::cout << "NVariable(" << this->identifier.name;
     
-    if (this->type == VARIABLE_ARRAY)
-        std::cout << "[" << this->arr_size << "]";
+    if (this->type == VARIABLE_ARRAY) {
+        std::cout << "[";
+        this->arr_size.DumpNode();
+        std::cout << "]";
+    }
 
     std::cout << ")";
 }

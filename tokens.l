@@ -62,7 +62,7 @@ static void update_loc(){
 [a-zA-Z][a-zA-Z0-9]*                SAVE_TOKEN; return TIDENTIFIER;
 [0-9]+"."[0-9]+([eE][+-]?[0-9+])?   SAVE_TOKEN; return TDOUBLE;
 [0-9]+                              SAVE_TOKEN; return TINTEGER;
-"\""[^"\\]*"\""         SAVE_TOKEN; return TSTRINGLIT;
+"\""(\\.|[^"\\])*"\""               SAVE_TOKEN; return TSTRINGLIT;
 ":="                                return TOKEN(TASSIGN);
 "="                                 return TOKEN(TCEQ);
 "<>"                                return TOKEN(TCNE);
