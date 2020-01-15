@@ -1,6 +1,58 @@
 #include <iostream>
 #include "node.hpp"
 
+/*bool Node::IsBaseExpression() {
+    if (dynamic_cast<NInteger*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NReal*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NStringLiteral*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NIdentifier*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NVariable*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NFunctionCall*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NBinaryOp*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NUnaryOp*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NExpression*>(this) != nullptr)
+        return true;
+    else
+        return false;
+}
+    
+bool Node::IsBaseStatement() {
+    if (dynamic_cast<NAssignment*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NExpressionStatement*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NVariableDecl*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NVariableCompoundDecl*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NFunctionDecl*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NIfStatement*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NForStatement*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NWhileStatement*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NPrintStatement*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NReadStatement*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NReturnStatement*>(this) != nullptr)
+        return false;
+    else if (dynamic_cast<NStatement*>(this) != nullptr)
+        return true;
+    else
+        return false;
+}*/
+
 void NExpression::DumpNode() {
     if (dynamic_cast<NInteger*>(this) != nullptr)
         return dynamic_cast<NInteger*>(this)->DumpNode();

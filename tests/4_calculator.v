@@ -4,7 +4,7 @@
 % Author: Ozan Sazak   %
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-var num1: real, num2: real, choice: int;
+var num1: int, num2: int, choice: int;
 
 int func printOptions()
     print "Options: (1) Addition\n";
@@ -18,16 +18,16 @@ int func printOptions()
     return 0;
 endfunc
 
-real func factorial(number: real)
+int func factorial(number: int)
     if number <= 1 then
         return 1;
     endif;
 
-    return (number * factorial(num - 1));
+    return (number * factorial(number - 1));
 endfunc
 
-real func power(base: real, pow: real)
-    var p: real, i: int;
+int func power(base: int, pow: int)
+    var p: int, i: int;
 
     p := 1;
 

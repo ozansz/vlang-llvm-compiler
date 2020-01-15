@@ -5,7 +5,6 @@
     extern int yylineno;
     extern YYLTYPE yylloc;
 
-    /* the top level root node of our final AST */
     NProgram *programBlock;
 
     extern int yylex();
@@ -36,11 +35,6 @@
     int token;
 }
 
-/* Define our terminal symbols (tokens). This should
-   match our tokens.l lex file. We also define the node type
-   they represent.
- */
-
 %token <string> TIDENTIFIER TINTEGER TDOUBLE TSTRINGLIT
 %token <token> TCEQ TCNE TCLT TCLE TCGT TCGE TEQUAL
 %token <token> TLPAREN TRPAREN TLBRACE TRBRACE TCOMMA TDOT TSEMICOLON TCOLON TASSIGN
@@ -48,12 +42,6 @@
 %token <token> TVAR TFUNC TENDFUNC TRETURN
 %token <token> TLOGICAND TLOGICNOT TLOGICOR TIF TTHEN TELSE TENDIF
 %token <token> TDO TFOR TENDFOR TTO TBY TWHILE TENDWHILE TPRINT TREAD
-
-/* Define the type of node our nonterminal symbols represent.
-   The types refer to the %union declaration above. Ex: when
-   we call an ident (defined by union type ident) we are really
-   calling an (NIdentifier*). It makes the compiler happy.
- */
 
 %type <token> unaryop binaryop
 %type <ident> identifier

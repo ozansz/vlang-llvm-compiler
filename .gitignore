@@ -6,3 +6,4 @@ parser.cpp
 parser.hpp
 tokens.cpp
 V.g4
+*.ll
