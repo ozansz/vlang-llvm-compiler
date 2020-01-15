@@ -7,17 +7,17 @@ TESTFILES=$(ls tests/*.v)
 all: clean ir compiler
 
 compiler: parser
-	$(CXX) $(CPPFLAGS) parser.cpp tokens.cpp node.cpp codegen.cpp compiler.cpp -o compiler
+	$(CXX) $(CPPFLAGS) src/parser.cpp src/tokens.cpp src/node.cpp src/codegen.cpp src/compiler.cpp -o compiler
 
 ir: parser
-	$(CXX) $(CPPFLAGS) parser.cpp tokens.cpp node.cpp codegen.cpp ir_test.cpp -o irgen
+	$(CXX) $(CPPFLAGS) src/parser.cpp src/tokens.cpp src/node.cpp src/codegen.cpp src/ir_test.cpp -o irgen
 
 parser: lexer
-	$(CXX) $(CPPFLAGS) parser.cpp tokens.cpp node.cpp codegen.cpp parser_test.cpp -o parser
+	$(CXX) $(CPPFLAGS) src/parser.cpp src/tokens.cpp src/node.cpp src/codegen.cpp src/parser_test.cpp -o parser
 
 lexer:
-	bison $(BISON_FLAGS) parser.y -o parser.cpp
-	flex -o tokens.cpp tokens.l
+	bison $(BISON_FLAGS) src/parser.y -o src/parser.cpp
+	flex -o src/tokens.cpp src/tokens.l
 
 tests: ir
 	for tf in `ls tests/*.v`; do \
@@ -27,6 +27,6 @@ tests: ir
     done
 
 clean:
-	$(RM) *.hh parser.cpp parser.hpp tokens.cpp parser irgen compiler *.ll
+	$(RM) src/*.hh src/parser.cpp src/parser.hpp src/tokens.cpp parser irgen compiler *.ll
 
 .PHONY: clean tests

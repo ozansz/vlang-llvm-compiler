@@ -2,6 +2,8 @@
 
 *.hh
 parser
+compiler
+irgen
 parser.cpp
 parser.hpp
 tokens.cpp
